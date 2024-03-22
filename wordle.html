@@ -1,0 +1,379 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Word Guessing Game</title>
+  <style>
+    body {
+      background-color: #f0f0f0;
+      text-align: center;
+    }
+    .letter {
+      height: 50px;
+      width: 50px;
+    }
+    .letter1 {
+      height: 50px;
+      width: 50px;
+    }
+    .letter2{
+      height: 50px;
+      width: 50px;
+    }
+    .letter3 {
+      height: 50px;
+      width: 50px;
+    }
+    .letter4 {
+      height: 50px;
+      width: 50px;
+    }
+      .letter5 {
+      height: 50px;
+      width: 50px;
+    }
+   
+    .green {
+      background-color: #6aaa64;
+    }
+    .yellow {
+      background-color: #c9b458;
+    }
+    .grey {
+      background-color: #787c7e;
+    }
+    .orange {
+      background-color: orange;
+    }
+  </style>
+</head>
+<body>
+  <div class='word' id='word1'>
+    <input class='letter' id='letter1'>
+    <input class='letter' id='letter2'>  
+    <input class='letter' id='letter3'>
+    <input class='letter' id='letter4'>
+    <input class='letter' id='letter5'>
+  </div>
+  <br>
+  <br>
+    <div class='word' id='word1'>
+    <input class='letter1' id='letter1'>
+    <input class='letter1' id='letter2'>  
+    <input class='letter1' id='letter3'>
+    <input class='letter1' id='letter4'>
+    <input class='letter1' id='letter5'>
+  </div>
+  <br>
+  <br>
+    <div class='word' id='word1'>
+    <input class='letter2' id='letter1'>
+    <input class='letter2' id='letter2'>  
+    <input class='letter2' id='letter3'>
+    <input class='letter2' id='letter4'>
+    <input class='letter2' id='letter5'>
+  </div>
+  <br>
+  <br>
+    <div class='word' id='word1'>
+    <input class='letter3' id='letter1'>
+    <input class='letter3' id='letter2'>  
+    <input class='letter3' id='letter3'>
+    <input class='letter3' id='letter4'>
+    <input class='letter3' id='letter5'>
+  </div>
+  <br>
+  <br>
+     <div class='word' id='word1'>
+    <input class='letter4' id='letter1'>
+    <input class='letter4' id='letter2'>  
+    <input class='letter4' id='letter3'>
+    <input class='letter4' id='letter4'>
+    <input class='letter4' id='letter5'>
+  </div>
+  <br>
+  <br>
+     <div class='word' id='word1'>
+    <input class='letter5' id='letter1'>
+    <input class='letter5' id='letter2'>  
+    <input class='letter5' id='letter3'>
+    <input class='letter5' id='letter4'>
+    <input class='letter5' id='letter5'>
+  </div>
+  <br>
+  <br>
+  <script>
+    var words=[
+      ['a', 'p', 'p', 'l', 'e'],
+      ['b', 'r', 'e', 'a', 'd'],
+      ['c', 'h', 'a', 'i', 'r'],
+      ['c', 'l', 'o', 'c', 'k'],
+      ['c', 'o', 'm', 'b', 's'],
+      ['d', 'r', 'e', 's', 's'],
+      ['f', 'l', 'a', 'g', 's'],
+      ['g', 'r', 'a', 's', 's'],
+      ['g', 'u', 'i', 't', 's'],
+      ['h', 'a', 't', 's', 's'],
+      ['j', 'u', 'i', 'c', 'e'],
+      ['l', 'e', 'm', 'o', 'n'],
+      ['m', 'o', 'u', 's', 'e'],
+      ['p', 'e', 'n', 'c', 'e'],
+      ['p', 'i', 'c', 't', 's'],
+      ['q', 'u', 'i', 'l', 't'],
+      ['s', 'c', 'a', 'l', 'p'],
+      ['s', 'k', 'i', 'r', 't'],
+      ['s', 'p', 'o', 'o', 'n'],
+      ['s', 't', 'a', 'r', 't'],
+      ['t', 'a', 'b', 'l', 'e'],
+      ['t', 'i', 'g', 'h', 't'],
+      ['t', 'r', 'a', 'i', 'n'],
+      ['t', 'r', 'e', 'e', 's'],
+      ['t', 'w', 'i', 'n', 'e'],
+      ['v', 'o', 'l', 'c', 'a'],
+      ['w', 'a', 'v', 'e', 's'],
+      ['w', 'h', 'e', 'e', 'l'],
+      ['y', 'e', 'a', 's', 't'],
+      ['a', 'l', 'l', 'a', 'y'],
+      ['a', 'r', 'c', 'h', 'e'],
+      ['b', 'e', 'a', 's', 't'],
+      ['b', 'i', 'r', 't', 'h'],
+      ['b', 'o', 'a', 't', 's'],
+      ['b', 'r', 'a', 'v', 'e'],
+      ['b', 'u', 't', 't', 's'],
+      ['c', 'r', 'u', 's', 'h'],
+      ['c', 'u', 'r', 'v', 'e'],
+      ['d', 'e', 'e', 'p', 's'],
+      ['d', 'o', 'u', 'b', 't'],
+      ['f', 'l', 'i', 'g', 'h'],
+      ['f', 'o', 'o', 't', 's'],
+      ['g', 'i', 'a', 'n', 't'],
+      ['g', 'r', 'o', 'w', 'l'],
+      ['g', 'u', 'e', 's', 's'],
+      ['h', 'e', 'a', 'l', 's'],
+      ['j', 'u', 'm', 'p', 's'],
+      ['k', 'n', 'e', 'e', 'l'],
+    ];
+
+    document.addEventListener('DOMContentLoaded', () => {
+      var letters = '';
+      var randomNumber = Math.floor(Math.random() * 50);
+      var targetWord = words[randomNumber];
+      var word1 = false;
+      var word2 = false;
+      var word3 = false;
+      var word4 = false;
+      var word5 = false;
+      var word6 = false;
+
+      letters = document.querySelectorAll('.letter');
+      letters.forEach((letter, i) => {
+        letter.addEventListener('input', () => {
+          if (i < letters.length - 1 && letter.value) {
+            letters[i + 1].focus();
+          }
+        });
+
+        letter.addEventListener('keydown', (event) => {
+          if (event.key === 'Backspace') {
+            letters[i].value = '';
+            if (i > 0) {
+              letters[i - 1].focus();
+            }
+          }
+        });
+      });
+
+      document.addEventListener('keydown', (event) => {
+        if (event.key == 'Enter') {
+          letters.forEach((letter, i) => {
+            if (letter.value === targetWord[i]) {
+              letter.style.backgroundColor = 'green';
+            } else if (targetWord.includes(letter.value)) {
+              letter.style.backgroundColor = 'orange';
+            } else {
+              letter.style.backgroundColor = 'grey';
+            }
+          });
+          word1 = true;
+
+          letters = document.querySelectorAll('.letter1');
+          letters[0].focus();
+          letters = document.querySelectorAll('.letter1');
+          letters.forEach((letter, i) => {
+            letter.addEventListener('input', () => {
+              if (i < letters.length - 1 && letter.value) {
+                letters[i + 1].focus();
+              }
+            });
+
+            letter.addEventListener('keydown', (event) => {
+              if (event.key === 'Backspace') {
+                letters[i].value = '';
+                if (i > 0) {
+                  letters[i - 1].focus();
+                }
+              }
+            });
+          });
+
+          document.addEventListener('keydown', (event) => {
+            if (event.key == 'Enter') {
+              letters.forEach((letter, i) => {
+                if (letter.value === targetWord[i]) {
+                  letter.style.backgroundColor = 'green';
+                } else if (targetWord.includes(letter.value)) {
+                  letter.style.backgroundColor = 'orange';
+                } else {
+                  letter.style.backgroundColor = 'grey';
+                }
+              });
+              word2 = true;
+
+              letters = document.querySelectorAll('.letter2');
+              letters[0].focus();
+              letters = document.querySelectorAll('.letter2');
+              letters.forEach((letter, i) => {
+                letter.addEventListener('input', () => {
+                  if (i < letters.length - 1 && letter.value) {
+                    letters[i + 1].focus();
+                  }
+                });
+
+                letter.addEventListener('keydown', (event) => {
+                  if (event.key === 'Backspace') {
+                    letters[i].value = '';
+                    if (i > 0) {
+                      letters[i - 1].focus();
+                    }
+                  }
+                });
+              });
+
+              document.addEventListener('keydown', (event) => {
+                if (event.key == 'Enter') {
+                  letters.forEach((letter, i) => {
+                    if (letter.value === targetWord[i]) {
+                      letter.style.backgroundColor = 'green';
+                    } else if (targetWord.includes(letter.value)) {
+                      letter.style.backgroundColor = 'orange';
+                    } else {
+                      letter.style.backgroundColor = 'grey';
+                    }
+                  });
+                  word3 = true;
+
+                  letters = document.querySelectorAll('.letter3');
+                  letters[0].focus();
+                  letters = document.querySelectorAll('.letter3');
+                  letters.forEach((letter, i) => {
+                    letter.addEventListener('input', () => {
+                      if (i < letters.length - 1 && letter.value) {
+                        letters[i + 1].focus();
+                      }
+                    });
+
+                    letter.addEventListener('keydown', (event) => {
+                      if (event.key === 'Backspace') {
+                        letters[i].value = '';
+                        if (i > 0) {
+                          letters[i - 1].focus();
+                        }
+                      }
+                    });
+                  });
+
+                  document.addEventListener('keydown', (event) => {
+                    if (event.key == 'Enter') {
+                      letters.forEach((letter, i) => {
+                        if (letter.value === targetWord[i]) {
+                          letter.style.backgroundColor = 'green';
+                        } else if (targetWord.includes(letter.value)) {
+                          letter.style.backgroundColor = 'orange';
+                        } else {
+                          letter.style.backgroundColor = 'grey';
+                        }
+                      });
+                      word4 = true;
+
+                      letters = document.querySelectorAll('.letter4');
+                      letters[0].focus();
+                      letters = document.querySelectorAll('.letter4');
+                      letters.forEach((letter, i) => {
+                        letter.addEventListener('input', () => {
+                          if (i < letters.length - 1 && letter.value) {
+                            letters[i + 1].focus();
+                          }
+                        });
+
+                        letter.addEventListener('keydown', (event) => {
+                          if (event.key === 'Backspace') {
+                            letters[i].value = '';
+                            if (i > 0) {
+                              letters[i - 1].focus();
+                            }
+                          }
+                        });
+                      });
+
+                      document.addEventListener('keydown', (event) => {
+                        if (event.key == 'Enter') {
+                          letters.forEach((letter, i) => {
+                            if (letter.value === targetWord[i]) {
+                              letter.style.backgroundColor = 'green';
+                            } else if (targetWord.includes(letter.value)) {
+                              letter.style.backgroundColor = 'orange';
+                            } else {
+                              letter.style.backgroundColor = 'grey';
+                            }
+                          });
+                          word5 = true;
+
+                          letters = document.querySelectorAll('.letter5');
+                          letters[0].focus();
+                          letters = document.querySelectorAll('.letter5');
+                          letters.forEach((letter, i) => {
+                            letter.addEventListener('input', () => {
+                              if (i < letters.length - 1 && letter.value) {
+                                letters[i + 1].focus();
+                              }
+                            });
+
+                            letter.addEventListener('keydown', (event) => {
+                              if (event.key === 'Backspace') {
+                                letters[i].value = '';
+                                if (i > 0) {
+                                  letters[i - 1].focus();
+                                }
+                              }
+                            });
+                          });
+
+                          document.addEventListener('keydown', (event) => {
+                            if (event.key == 'Enter') {
+                              letters.forEach((letter, i) => {
+                                if (letter.value === targetWord[i]) {
+                                  letter.style.backgroundColor = 'green';
+                                } else if (targetWord.includes(letter.value)) {
+                                  letter.style.backgroundColor = 'orange';
+                                } else {
+                                  letter.style.backgroundColor = 'grey';
+                                }
+                              });
+                              word6 = true;
+                              alert(targetWord);
+                            }
+                          });
+                        }
+                      });
+                    }
+                  });
+                }
+              });
+            }
+          });
+        }
+      });
+    });
+  </script>
+</body>
+</html>
